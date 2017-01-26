@@ -1,0 +1,13 @@
+{
+  "name": "Presupuestador",
+  "description": "Presupuestador",
+  "main": "index.js",
+  "authors": [
+    "jorge@makingdevs.com carlo@makingdevs.com"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/TechMindsMX/Presupuestador-M1",
+  "dependencies": {
+    "metro": "Metro-UI-CSS#^3.0.17"
+  }
+}
