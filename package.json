@@ -1,0 +1,23 @@
+{
+  "name": "Presupuestador",
+  "version": "1.0.0",
+  "description": "Presupuestador",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TechMindsMX/Presupuestador-M1.git"
+  },
+  "author": "jorge@makingdevs.com carlo@makingdevs.com",
+  "license": "MIT",
+  "homepage": "https://github.com/TechMindsMX/Presupuestador-M1",
+  "dependencies": {
+    "bower": "^1.4.1",
+    "coffee-script": "*"
+  }
+}
