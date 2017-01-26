@@ -1,0 +1,39 @@
+buildscript {
+  repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+    classpath 'org.springframework:springloaded:1.2.3.RELEASE'
+  }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'war'
+apply plugin: 'org.springframework.boot'
+
+jar {
+  baseName = 'presupuestador'
+  version =  '0.1.0'
+}
+
+repositories {
+  mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+  compile 'org.codehaus.groovy:groovy-all:2.4.3'
+  testCompile 'org.codehaus.groovy:groovy:2.4.3'
+  compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+  compile("org.springframework.boot:spring-boot-starter-web") {
+    exclude module: "spring-boot-starter-tomcat"
+  }
+  compile("org.springframework.boot:spring-boot-starter-jetty")
+  compile("org.springframework.boot:spring-boot-starter-actuator")
+  testCompile("junit:junit")
+}
