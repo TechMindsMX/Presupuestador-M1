@@ -1,0 +1,4 @@
+.gradle/
+.gradletasknamecache
+.DS_Store
+build/
