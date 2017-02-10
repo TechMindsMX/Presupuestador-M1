@@ -1,0 +1,26 @@
+@import "compass";
+
+@import "fontawesome/scss/variables";
+$fa-font-path: "fontawesome/fonts";
+@import "fontawesome/scss/mixins";
+// Custom path
+@font-face {
+  font-family: 'FontAwesome';
+  src: font-url('#{$fa-font-path}/fontawesome-webfont.eot?v=#{$fa-version}');
+  src: font-url('#{$fa-font-path}/fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+  font-url('#{$fa-font-path}/fontawesome-webfont.woff2?v=#{$fa-version}') format('woff2'),
+  font-url('#{$fa-font-path}/fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
+  font-url('#{$fa-font-path}/fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
+  font-url('#{$fa-font-path}/fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@import "fontawesome/scss/core";
+@import "fontawesome/scss/larger";
+@import "fontawesome/scss/fixed-width";
+@import "fontawesome/scss/list";
+@import "fontawesome/scss/bordered-pulled";
+@import "fontawesome/scss/animated";
+@import "fontawesome/scss/rotated-flipped";
+@import "fontawesome/scss/stacked";
+@import "fontawesome/scss/icons";
