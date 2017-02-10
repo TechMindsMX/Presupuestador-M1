@@ -4,8 +4,6 @@ lock "3.7.2"
 set :application, "presupuestador-m1"
 set :repo_url, "git@github.com:TechMindsMX/Presupuestador-M1.git"
 set :rbenv_ruby, '2.4.0'
-set :shell, '/bin/zsh '
-set :default_shell, '/bin/zsh '
 
 # set :puma_init_active_record, true
 set :puma_user, fetch(:user)
