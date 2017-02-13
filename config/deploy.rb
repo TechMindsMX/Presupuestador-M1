@@ -10,8 +10,6 @@ set :puma_user, fetch(:user)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
-set :bower_bin, '/home/ec2-user/.nodenv/versions/7.5.0/bin/bower'
-
 Rake::Task["deploy:assets:precompile"].clear_actions
 Rake::Task["deploy:assets:backup_manifest"].clear_actions
 
@@ -60,6 +58,37 @@ namespace :deploy do
   after  :finishing,    :restart
 
 end
+
+namespace :bower do
+
+  desc "Symlink shared components to current release"
+  task :symlink do
+    on roles(:app) do
+      execute "mkdir -p #{shared_path}/vendor/assets/third-party"
+      execute "ln -nfs #{shared_path}/vendor/assets/third-party #{release_path}/vendor/assets/third-party"
+    end
+  end
+
+  desc "Install the current Bower environment"
+  task :install do
+    on roles(:app) do
+      execute "cd #{release_path} && ~/.nodenv/versions/7.5.0/bin/node ~/.nodenv/versions/7.5.0/bin/npm install"
+      execute "cd #{release_path} && ~/.nodenv/versions/7.5.0/bin/node node_modules/bower/bin/bower install"
+    end
+  end
+
+  desc "Uninstalls local extraneous packages"
+  task :prune do
+    on roles(:app) do
+      execute "cd #{release_path} && ~/.nodenv/versions/7.5.0/bin/node node_modules/bower/bin/bower prune"
+    end
+  end
+
+end
+
+before "deploy:assets:precompile", "bower:install"
+before "bower:install", "bower:symlink"
+after  "bower:install", "bower:prune"
 
 # ps aux | grep puma    # Get puma pid
 # kill -s SIGUSR2 pid   # Restart puma
