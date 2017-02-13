@@ -10,6 +10,8 @@ set :puma_user, fetch(:user)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
 
+set :bower_bin, '/home/ec2-user/.nodenv/versions/7.5.0/bin/bower'
+
 Rake::Task["deploy:assets:precompile"].clear_actions
 Rake::Task["deploy:assets:backup_manifest"].clear_actions
 
@@ -56,6 +58,7 @@ namespace :deploy do
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
+
 end
 
 # ps aux | grep puma    # Get puma pid
