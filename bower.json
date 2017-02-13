@@ -1,12 +1,12 @@
 {
-  "name": "Presupuestador-M1",
+  "name": "presupuestador-m1",
   "version": "0.0.1",
   "homepage": "https://github.com/TechMindsMX/Presupuestador-M1",
   "authors": [
     "Jorge Acosta Lemus <jorge@makingdevs.com>",
     "Carlo Gilmar  <carlo@makingdevs.com>"
   ],
-  "description": "Presupuestador-M1",
+  "description": "presupuestador-m1",
   "license": "",
   "dependencies": {
     "jquery": "~2.1.4",
